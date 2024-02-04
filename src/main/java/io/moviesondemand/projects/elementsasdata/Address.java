@@ -1,4 +1,4 @@
-package io.moviesondemand.projects;
+package io.moviesondemand.projects.elementsasdata;
 
 import lombok.Getter;
 import lombok.Setter;

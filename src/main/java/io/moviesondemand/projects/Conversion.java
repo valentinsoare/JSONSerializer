@@ -1,6 +1,5 @@
-package io.moviesondemand.projects.elementsasdata;
+package io.moviesondemand.projects;
 
-import io.moviesondemand.projects.Helpers;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -41,9 +40,11 @@ public class Conversion {
             sb.append(": ");
 
             if (field.getType().isPrimitive()) {
-                sb.append(helpers.formatPrimitiveValue(field, instance));
+                sb.append(helpers.formatPrimitiveValue(field.get(instance), field.getType()));
             } else if (field.getType().equals(String.class)) {
                 sb.append(helpers.formatStringValue(field.get(instance).toString()));
+            } else if (field.getType().isArray()) {
+                sb.append(helpers.arrayToJson(field.get(instance), indentSize + 1));
             } else {
                 sb.append(objectToJson(field.get(instance), indentSize + 1));
             }
