@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Helpers {
-
     public Helpers() {}
 
     public String formatPrimitiveValue(Object instance, Class<?> type) {
