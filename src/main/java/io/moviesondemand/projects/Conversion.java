@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,10 +32,13 @@ public class Conversion {
             Field field = fields.get(i);
 
             field.setAccessible(true);
+            int modifiers = field.getModifiers();
 
-            if (field.isSynthetic()) {
+            if ((field.isSynthetic()) ||
+                    ((Modifier.isStatic(modifiers)) || Modifier.isTransient(modifiers))) {
                 continue;
             }
+
             sb.append(helpers.indent(indentSize + 1));
             sb.append(helpers.formatStringValue(field.getName()));
             sb.append(": ");
@@ -60,5 +64,4 @@ public class Conversion {
         sb.append("}");
         return sb.toString();
     }
-
 }

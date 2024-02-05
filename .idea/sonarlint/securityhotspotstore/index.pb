@@ -19,3 +19,5 @@ S
 -.idea/sonarlint/securityhotspotstore/index.pb,8/8/88a9255124c95bdc913197c120a8d560edc59c8e
 f
 6src/test/java/io/moviesondemand/projects/MainTest.java,2/f/2f5fef3d22cb8a01ea39e7bfd6deec10e1060b0d
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
